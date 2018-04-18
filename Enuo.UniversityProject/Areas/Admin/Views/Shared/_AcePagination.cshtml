@@ -1,0 +1,56 @@
+﻿
+<div class="modal-footer no-margin-top">
+    <p class="pull-left">
+        @{int CurrentPageStartIndex = Model.IsFirstPage ? Model.PageNumber : ((Model.PageNumber - 1) * Model.PageSize + 1);}
+        Showing @CurrentPageStartIndex
+        to @(CurrentPageStartIndex + Model.PageSize - 1)
+        of @Model.TotalItemCount Entries
+    </p>
+        <ul class="pagination pull-right no-margin">
+            <li class="prev disabled">
+                <a>
+                    <i class="ace-icon fa fa-angle-double-left"></i>
+                </a>
+            </li>
+            @if (Model.HasPreviousPage)
+            {
+                <li class="prev">
+                  
+                    @Html.ActionLink("First" , "Index", new { page = 1 })
+                    @Html.ActionLink("Prev", "Index", new { page = Model.PageNumber - 1 })
+                </li>
+            }
+            else
+            {
+                <li class="prev disabled">
+                    <a>First</a>
+                    <a>Prev</a>
+                </li>
+            }
+
+            @{ string CurrentPage = string.Format("{0}", Model.PageNumber);}
+            <li class="active">
+                @Html.ActionLink(CurrentPage, "Index", new { page = Model.PageNumber })
+            </li>
+
+            @if (Model.HasNextPage)
+            {
+                <li class="next">
+                    @Html.ActionLink("Next", "Index", new { page = Model.PageNumber + 1 })
+                    @Html.ActionLink("Last", "Index", new { page = Model.PageCount })
+                </li>
+            }
+            else
+            {
+                <li class="next disabled">
+                    <a>Next</a>
+                    <a>Last</a>
+                </li>
+            }
+            <li class="next disabled">
+                <a>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                </a>
+            </li>
+        </ul>
+</div>

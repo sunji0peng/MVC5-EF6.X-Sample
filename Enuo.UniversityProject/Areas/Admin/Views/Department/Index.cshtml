@@ -1,0 +1,90 @@
+﻿@model PagedList.IPagedList<Enuo.UniversityProject.Areas.Admin.Models.DepartmentModel>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AceAdminLayout.cshtml";
+}
+@Html.AntiForgeryToken()
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".red").click(function () {
+                var delId = $(this).attr("data-id");
+
+                if (delId != '' && confirm("Delete it")) {
+                    $.ajax("Delete", {
+                        type: "post", data: { "id": delId }
+                        @*headers: {
+                        "RequestVerificationToken": $('@Html.AntiForgeryToken()').val()
+                    }*@
+                    }).done(function (data) {
+                        if (data)
+                        {
+                            $('#row-' + delId).fadeOut('slow');
+                            alert("Delete Sucessful");
+                        }
+                        else
+                        {
+                            alert("Delete Faile");
+                        }
+
+                    });
+                }
+            })
+        })
+    </script>
+}
+<div class="page-header">
+        <h1>
+            @ViewBag.Title
+            <small>
+                <i class="ace-icon fa fa-angle-double-right"></i>
+                @DateTime.Now    
+            </small>
+        </h1>
+    </div>
+<div class="modal-body no-padding">
+    <div class="row">
+        <table  class="table table-striped table-bordered table-hover">
+            <caption class="table-header center bolder">Department Table</caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>@Html.ActionLink("Name","Index")</th>
+                    <th>Budget</th>
+                    <th>StartDate</th>
+                    <th>Adminstrator</th>
+                    <th colspan="4">Operator</th>
+                </tr>
+            </thead>
+           
+            <tbody id="datatable">
+                @foreach (var item in Model)
+                {
+                    <tr id="row-@item.DepartmentID">
+                        <td>@Html.DisplayFor(x => item.DepartmentID)</td>
+                        <td>@Html.DisplayFor(x => item.Name)</td>
+                        <td>@Html.DisplayFor(x=>item.Budget)</td>
+                        <td>@Html.DisplayFor(x => item.StartDate)</td>
+                        <td>暂时未实现显示院长信息</td>
+                        <td class="td-actions">
+                            <div class="hidden-phone visible-desktop action-buttons">
+                                @*<a class="blue" href="@Url.Action("Details",new { id=item.DepartmentID})">
+                                    <i class="icon-zoom-in bigger-130">Detail</i>
+                                </a>*@
+                                <a class="green" href="@Url.Action("Edit",new { id=item.DepartmentID})">
+                                    <i class="icon-pencil bigger-130">Editor</i>
+                                </a>
+                                <a data-id="@item.DepartmentID" class="red" href="#">
+                                    <i class="icon-trash bigger-130">Delete</i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (Model != null)
+        {  @Html.Partial("_AcePagination")}
+    </div>
+</div>
+

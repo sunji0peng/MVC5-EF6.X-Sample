@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enuo.UniversityProject", "Enuo.UniversityProject\Enuo.UniversityProject.csproj", "{7DD76C31-CB7F-4ADF-AA7E-C5B82191310E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enuo.Repository(EF6.x)", "Enuo.Repository(EF6.0)\Enuo.Repository(EF6.x).csproj", "{55AF1B72-C111-44EC-A64F-4E2061720858}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C0167A58-D81D-48B1-B049-22A780F786BD}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DD76C31-CB7F-4ADF-AA7E-C5B82191310E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD76C31-CB7F-4ADF-AA7E-C5B82191310E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD76C31-CB7F-4ADF-AA7E-C5B82191310E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD76C31-CB7F-4ADF-AA7E-C5B82191310E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55AF1B72-C111-44EC-A64F-4E2061720858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55AF1B72-C111-44EC-A64F-4E2061720858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55AF1B72-C111-44EC-A64F-4E2061720858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55AF1B72-C111-44EC-A64F-4E2061720858}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
